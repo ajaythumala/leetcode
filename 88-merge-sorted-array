@@ -1,0 +1,41 @@
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        
+        """
+        
+        def shift_right_from_index(array, index):
+            pos = len(array) - 1
+            while pos > index:
+                array[pos] = array[pos - 1]
+                pos -= 1
+                
+        i=j=0
+        
+        while i < m and j < n:
+            if nums1[i] < nums2[j]:
+                i += 1
+            elif nums2[j] < nums1[i]:
+                shift_right_from_index(nums1, i)
+                nums1[i] = nums2[j]
+                j += 1
+                i += 1
+                m += 1
+            elif nums1[i] == nums2[j]:
+                shift_right_from_index(nums1, i)
+                j += 1
+                i += 2
+                m += 1
+        while i < m+n and j < n:
+            nums1[i] = nums2[j]
+            i += 1
+            j += 1
+                
+        
+    
+                
+                
+                
+        
+        
