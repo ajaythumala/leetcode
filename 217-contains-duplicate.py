@@ -7,6 +7,17 @@ class Solution:
         return len(set(nums))!=len(nums)
         
         #----------------------------------------------------#
+        """
+        using a set
+        """
+        visited = set() # sets are implemented using hash tables.
+        for num in nums: # hence, it is faster to use sets than lists.
+            if num in visited:
+                return True
+            visted.add(num)
+        return False
+        
+        #----------------------------------------------------#
         
         """
         using dictionary
